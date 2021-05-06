@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Werwolf",
-        "description":"",
+        "description":"Die Werwölfe haben das Ziel, das gesamte Dorf zu töten.",
         "isFirstRole": 1,
         "isSecondRole": 0,
         "isselected": 0
