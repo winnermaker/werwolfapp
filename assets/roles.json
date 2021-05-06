@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "name": "Werwolf",
+        "description":"",
+        "isFirstRole": 1,
+        "isSecondRole": 0,
+        "isselected": 0
+    }
+]
