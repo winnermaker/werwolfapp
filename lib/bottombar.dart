@@ -60,11 +60,11 @@ class _BottomBarState extends State<BottomBar> {
       case 0:
         return Home();
       case 1:
-        return FirstChoice();
+        return PlayersChoice();
       case 2:
-        return SecondChoice();
+        return FirstChoice();
       case 3:
-        return Matches();
+        return SecondChoice();
       case 4:
         return Matches();
       default:
