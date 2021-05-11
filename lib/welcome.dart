@@ -9,28 +9,7 @@ class Welcome extends StatelessWidget {
         body: new Container(
           decoration: new BoxDecoration(
             image: new DecorationImage(
-              colorFilter: ColorFilter.matrix(<double>[
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0.3,
-                0,
-              ]),
+              colorFilter: ColorFilter.srgbToLinearGamma(),
               image: new AssetImage("assets/images/welcome.jpg"),
               fit: BoxFit.cover,
             ),
@@ -45,9 +24,10 @@ class Welcome extends StatelessWidget {
                     'Werwolf Matchmaking!',
                     style: TextStyle(
                         fontSize: 40,
-                        color: Colors.redAccent[700],
+                        color: Colors.amber,
                         fontWeight: FontWeight.w900,
-                        decoration: TextDecoration.underline),
+                        decoration: TextDecoration.none),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 new Center(

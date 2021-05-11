@@ -22,34 +22,12 @@ class MatchesState extends State<Matches> {
         floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.blueGrey[300],
             onPressed: () {
-              Navigator.pushNamed(context, '/Matches');
+              Navigator.pushNamed(context, '/Saved');
             },
             child: Icon(Icons.list)),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              colorFilter: ColorFilter.matrix(<double>[
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0.8,
-                0,
-              ]),
               image: AssetImage("assets/images/welcome.jpg"),
               fit: BoxFit.cover,
             ),

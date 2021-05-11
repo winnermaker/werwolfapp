@@ -20,21 +20,11 @@ class SecondChoiceState extends State<SecondChoice> {
         child: Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [
-              0.1,
-              0.3,
-              0.6,
-              1
-            ],
-                colors: [
-              Colors.lightGreen[300],
-              Colors.yellow[300],
-              Colors.orange[300],
-              Colors.red[300]
-            ])),
+          image: DecorationImage(
+            image: AssetImage("assets/images/welcome.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: [
             Row(

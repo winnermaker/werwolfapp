@@ -41,12 +41,12 @@ class _BottomBarState extends State<BottomBar> {
         title: Text("Home "),
       ),
       BottomNavigationBarItem(
-        icon: Icon(Werwolf.users, size: 30),
-        title: Text("Player"),
-      ),
-      BottomNavigationBarItem(
         icon: Icon(Werwolf.wolf_howl, size: 30),
         title: Text("Roles"),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Werwolf.users, size: 30),
+        title: Text("Player"),
       ),
       BottomNavigationBarItem(
         icon: Icon(Werwolf.shuffle_1, size: 30),
@@ -62,9 +62,9 @@ class _BottomBarState extends State<BottomBar> {
       case 1:
         return FirstChoice();
       case 2:
-        return FirstChoice();
-      case 3:
         return SecondChoice();
+      case 3:
+        return Matches();
       case 4:
         return Matches();
       default:
