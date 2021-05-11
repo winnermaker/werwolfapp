@@ -6,7 +6,7 @@ class Home extends StatefulWidget {
   HomeState createState() => HomeState();
 }
 
-List<bool> boolList = [true, false, false, false];
+List<bool> boolList = [true, false, false];
 
 class HomeState extends State<Home> {
   @override
@@ -65,7 +65,7 @@ class HomeState extends State<Home> {
                           ),
                         ),
                         onTap: () {
-                          for (int i = 0; i <= 3; i++) {
+                          for (int i = 0; i <= 2; i++) {
                             boolList[i] = false;
                           }
                           boolList[index - 1] = !boolList[index - 1];
@@ -102,25 +102,19 @@ final options = [
       size: 60,
       color: Colors.orange,
     ),
-    title: 'Shots, Shots, Shots!',
-    subtitle: 'Nur Alkohol!',
+    title: 'Rolle',
+    subtitle: 'Gibt eine zufällige Rolle aus',
   ),
   Option(
     icon: Icon(Icons.check_box_outline_blank, size: 60.0),
-    iconSelected: Icon(Werwolf.gitlab, size: 60, color: Colors.yellow),
-    title: 'Madness!',
-    subtitle: 'Jeder Alkohol kann mit jedem Mixer vorkommen!',
+    iconSelected: Icon(Werwolf.looks_one, size: 60, color: Colors.yellow),
+    title: 'Standart!',
+    subtitle: 'Pro Person eine ROlle!',
   ),
   Option(
     icon: Icon(Icons.check_box_outline_blank, size: 60.0),
-    iconSelected: Icon(Icons.check_box, size: 60, color: Colors.green),
-    title: 'Wiederholung!',
-    subtitle: 'Bereits getrunkene Kombis sind raus!',
-  ),
-  Option(
-    icon: Icon(Icons.check_box_outline_blank, size: 60.0),
-    iconSelected: Icon(Icons.whatshot, size: 60, color: Colors.red),
-    title: 'Alice!',
-    subtitle: 'Alles mit allem! (vier Zutaten mind. 2 Mal Alkohol!)',
+    iconSelected: Icon(Werwolf.looks_two, size: 60, color: Colors.green),
+    title: 'Double Trouble!',
+    subtitle: 'Pro Person zwei Rollen',
   ),
 ];

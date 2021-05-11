@@ -36,7 +36,7 @@ class DatabaseProvider {
     String dbPath = await getDatabasesPath();
 
     return await openDatabase(
-      join(dbPath, 'UnsereDb.db'),
+      join(dbPath, 'myDB.db'),
       version: 1,
       onOpen: (Database db) {
         print("open Database");
@@ -61,6 +61,7 @@ class DatabaseProvider {
         } catch (err) {
           print(err);
         }
+        print("creating Player Table");
         await db.execute(
           "CREATE TABLE $TABLE_Players ("
           "$COLUMN_ID_Players INTEGER PRIMARY KEY,"
@@ -69,11 +70,11 @@ class DatabaseProvider {
           ")",
         );
         try {
-          String contents = await rootBundle.loadString('assets/player.json');
+          String contents = await rootBundle.loadString('assets/players.json');
           List<dynamic> json = jsonDecode(contents);
 
-          for (var playerMap in json) {
-            db.insert("player", Players.fromMap(playerMap).toMap());
+          for (var playersMap in json) {
+            db.insert("players", Players.fromMap(playersMap).toMap());
           }
         } catch (err) {
           print(err);
@@ -146,17 +147,17 @@ class DatabaseProvider {
     );
   }
 
-  Future<void> createPlayers(Players newPlayers) async {
+  Future<void> createPlayers(Players newPlayer) async {
     final Database db = await database;
     try {
-      await db.insert("Players", newPlayers.toMap(),
+      await db.insert("Players", newPlayer.toMap(),
           conflictAlgorithm: ConflictAlgorithm.replace);
     } catch (err) {
       print(err);
     }
   }
 
-  Future<List<Map<String, dynamic>>> queryallplayer() async {
+  Future<List<Map<String, dynamic>>> queryallplayers() async {
     final Database db = await database;
     return await db.query('Players');
   }

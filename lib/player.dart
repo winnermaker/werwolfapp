@@ -19,19 +19,19 @@ class Players extends StatefulWidget {
 
   final PlayersProperties properties;
   Players(this.properties);
-  static const String TABLE_Players = 'Players';
+  static const String TABLE_Players = 'players';
   static const String COLUMN_ID_Players = "id";
   static const String COLUMN_NAME_Players = "name";
   static const String COLUMN_ISSELECTED_Players = 'isselected';
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
-      DatabaseProvider.COLUMN_NAME: properties.name,
-      DatabaseProvider.COLUMN_ISSELECTED: properties.isselected
+      DatabaseProvider.COLUMN_NAME_Players: properties.name,
+      DatabaseProvider.COLUMN_ISSELECTED_Players: properties.isselected
     };
 
     if (properties.id != null) {
-      map[DatabaseProvider.COLUMN_ID] = properties.id;
+      map[DatabaseProvider.COLUMN_ID_Players] = properties.id;
     }
 
     return map;
@@ -74,7 +74,7 @@ class PlayersState extends State<Players> {
                 return showDialog(
                     context: context,
                     child: AlertDialog(
-                        title: Text("Getränk aus der Spieler entfernen!"),
+                        title: Text("Spieler aus der Liste entfernen!"),
                         content: Text(
                             "Hiermit wird der Spieler für immer aus der Liste entfernt !"),
                         actions: <Widget>[

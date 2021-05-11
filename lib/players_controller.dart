@@ -13,9 +13,9 @@ class PlayersController {
 
   List<Players> _allPlayers;
   List<Players> getAllPlayers() {
-    _allPlayers.sort((a, b) => a.properties.name
+    /*.sort((a, b) => a.properties.name
         .toLowerCase()
-        .compareTo(b.properties.name.toLowerCase()));
+        .compareTo(b.properties.name.toLowerCase()));*/
     return _allPlayers;
   }
 

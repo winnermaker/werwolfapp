@@ -169,7 +169,7 @@ Text roleDialog() {
     if (!savedRoles.contains(save)) {
       return Text(save);
     }
-  } else if (boolList[3] == true) {
+  } /*else if (boolList[3] == true) {
     return Text(randomFirst() +
         ", " +
         randomSecond() +
@@ -177,7 +177,8 @@ Text roleDialog() {
         randomFirst() +
         " und " +
         randomDrink());
-  } else {
+  } */
+  else {
     return Text(randomFirst() + " und " + randomSecond());
   }
 }
