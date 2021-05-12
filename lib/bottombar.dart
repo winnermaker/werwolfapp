@@ -3,7 +3,7 @@ import 'package:werwolfapp/werwolf_icons.dart';
 
 import 'home.dart';
 import 'roles_choice.dart';
-import 'player_choice.dart';
+import 'players_choice.dart';
 import 'matches.dart';
 
 class BottomBar extends StatefulWidget {

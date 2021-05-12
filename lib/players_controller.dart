@@ -1,6 +1,6 @@
 import 'local_db.dart';
 
-import 'player.dart';
+import 'players.dart';
 import 'package:flutter/cupertino.dart';
 
 class PlayersController {
@@ -31,6 +31,17 @@ class PlayersController {
       _selectedPlayers.add(_players[i].properties.name);
     }
     return _selectedPlayers;
+  }
+
+  List<int> getAllPlayersIds() {
+    List<int> _id = new List<int>();
+    List<Players> _players = new List<Players>();
+    _players = PlayersController().getAllPlayers().toList();
+
+    for (int i = 0; i < _players.length; i++) {
+      _id.add(_players[i].properties.id);
+    }
+    return _id;
   }
 
   List<Widget> getAllPlayersWidgets() {

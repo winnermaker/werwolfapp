@@ -37,6 +37,14 @@ class Players extends StatefulWidget {
     return map;
   }
 
+// Players.fromMap(Map<String, dynamic> map, this.properties) {
+//     properties.id = map[DatabaseProvider.COLUMN_ID];
+//     properties.name = map[DatabaseProvider.COLUMN_NAME];
+//     properties.isalcohol = map[DatabaseProvider.COLUMN_ISALCOHOL];
+//     properties.ismixer = map[DatabaseProvider.COLUMN_ISMIXER] ;
+//     properties.isselected = map[DatabaseProvider.COLUMN_ISSELECTED] ;
+
+//   }
   factory Players.fromMap(Map<String, dynamic> map) {
     return Players(PlayersProperties(
       map["id"],
@@ -74,9 +82,9 @@ class PlayersState extends State<Players> {
                 return showDialog(
                     context: context,
                     child: AlertDialog(
-                        title: Text("Spieler aus der Liste entfernen!"),
+                        title: Text("Getränk aus der Liste entfernen!"),
                         content: Text(
-                            "Hiermit wird der Spieler für immer aus der Liste entfernt !"),
+                            "Hiermit wird das Getränk für immer aus der Liste entfernt !"),
                         actions: <Widget>[
                           FlatButton(
                               onPressed: () {

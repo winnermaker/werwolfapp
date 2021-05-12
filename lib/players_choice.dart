@@ -1,5 +1,5 @@
 import 'players_controller.dart';
-import 'player.dart';
+import 'players.dart';
 import 'package:flutter/material.dart';
 
 import 'bottombar.dart';
@@ -13,7 +13,6 @@ class PlayersChoice extends StatefulWidget {
 
 class PlayersChoiceState extends State<PlayersChoice> {
   TextEditingController textFieldController = new TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -64,7 +63,7 @@ class PlayersChoiceState extends State<PlayersChoice> {
                       child: MaterialButton(
                           child: Padding(
                             padding: const EdgeInsets.only(top: 3, bottom: 3),
-                            child: Text("Players hinzufügen"),
+                            child: Text("Alkohol hinzufügen"),
                           ),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
@@ -79,12 +78,12 @@ class PlayersChoiceState extends State<PlayersChoice> {
                             return showDialog(
                                 context: context,
                                 child: AlertDialog(
-                                    title: Text("Neuer Players!"),
+                                    title: Text("Neuer Alkohol!"),
                                     content: SafeArea(
                                         child: TextField(
                                       controller: textFieldController,
                                       decoration: InputDecoration(
-                                        helperText: "Hier Players eingeben",
+                                        helperText: "Hier Alkohol eingeben",
                                       ),
                                     )),
                                     actions: <Widget>[
@@ -99,7 +98,7 @@ class PlayersChoiceState extends State<PlayersChoice> {
                                           onPressed: () async {
                                             setState(() {
                                               PlayersController()
-                                                  .addToAllPlayers(newRole(
+                                                  .addToAllPlayers(newPlayer(
                                                       textFieldController.text,
                                                       textFieldController
                                                           .text));
@@ -150,8 +149,7 @@ class PlayersChoiceState extends State<PlayersChoice> {
               child: SingleChildScrollView(
                 child: Center(
                   child: Column(
-                    children: PlayersController().getAllPlayersWidgets(),
-                  ),
+                      children: PlayersController().getAllPlayersWidgets()),
                 ),
               ),
             ),
@@ -160,11 +158,21 @@ class PlayersChoiceState extends State<PlayersChoice> {
       ),
     ));
   }
-}
 
-Players newRole(String name, String description) {
-  PlayersProperties properties = new PlayersProperties(
-      PlayersController().getAllPlayers().length + 1, name, 0);
-  Players newPlayers = new Players(properties);
-  return newPlayers;
+  Players newPlayer(String name, String description) {
+    PlayersProperties properties = new PlayersProperties(
+        PlayersController().getAllPlayers().length + 1, name, 0);
+    Players newPlayers = new Players(properties);
+    return newPlayers;
+  }
+
+  int setIsSelected(bool _isSelected) {
+    int temp;
+    if (_isSelected == true) {
+      temp = 0;
+    } else {
+      temp = 1;
+    }
+    return temp;
+  }
 }

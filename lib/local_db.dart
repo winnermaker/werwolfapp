@@ -4,7 +4,7 @@ import 'roles.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'package:path/path.dart';
-import 'player.dart';
+import 'players.dart';
 
 class DatabaseProvider {
   static const String TABLE_Roles = 'roles';
