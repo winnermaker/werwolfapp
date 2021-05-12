@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:werwolfapp/werwolf_icons.dart';
 
 import 'home.dart';
-import 'first_choice.dart';
-import 'second_choice.dart';
+import 'roles_choice.dart';
 import 'player_choice.dart';
 import 'matches.dart';
 
@@ -49,10 +48,6 @@ class _BottomBarState extends State<BottomBar> {
         title: Text("Roles"),
       ),
       BottomNavigationBarItem(
-        icon: Icon(Werwolf.wolf_howl, size: 30),
-        title: Text("Roles"),
-      ),
-      BottomNavigationBarItem(
         icon: Icon(Werwolf.shuffle_1, size: 30),
         title: Text("Match"),
       ),
@@ -66,10 +61,8 @@ class _BottomBarState extends State<BottomBar> {
       case 1:
         return PlayersChoice();
       case 2:
-        return FirstChoice();
+        return RolesChoice();
       case 3:
-        return SecondChoice();
-      case 4:
         return Matches();
       default:
         return Home();

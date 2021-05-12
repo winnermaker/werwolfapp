@@ -13,9 +13,9 @@ class PlayersController {
 
   List<Players> _allPlayers;
   List<Players> getAllPlayers() {
-    /*.sort((a, b) => a.properties.name
+    _allPlayers.sort((a, b) => a.properties.name
         .toLowerCase()
-        .compareTo(b.properties.name.toLowerCase()));*/
+        .compareTo(b.properties.name.toLowerCase()));
     return _allPlayers;
   }
 
@@ -54,7 +54,7 @@ class PlayersController {
     }
   }
 
-  void setAllPlayersUnelected() {
+  void setAllPlayersUnselected() {
     List<Players> _players = new List<Players>();
     _players = PlayersController().getAllPlayers().toList();
 
@@ -72,14 +72,14 @@ class PlayersController {
     int index = _allPlayers.indexWhere(
         (players) => players.properties.id == _players.properties.id);
     _allPlayers[index] = _players;
-    DatabaseProvider.db.updatePlayer(_allPlayers[index]);
+    DatabaseProvider.db.updatePlayers(_allPlayers[index]);
   }
 
   void removeFromAllPlayers(Players _players) {
     int index = _allPlayers.indexWhere(
         (players) => players.properties.id == _players.properties.id);
     _allPlayers.removeAt(index);
-    DatabaseProvider.db.deletePlayer(_players.properties.id);
+    DatabaseProvider.db.deletePlayers(_players.properties.id);
   }
 
   void addToAllPlayers(Players _players) {

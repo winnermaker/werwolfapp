@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'bottombar.dart';
 
-class FirstChoice extends StatefulWidget {
+class RolesChoice extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return FirstChoiceState();
+    return RolesChoiceState();
   }
 }
 
-class FirstChoiceState extends State<FirstChoice> {
+class RolesChoiceState extends State<RolesChoice> {
   TextEditingController textFieldController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class FirstChoiceState extends State<FirstChoice> {
                                 width: 3, color: Colors.blueGrey[300])),
                         onPressed: () {
                           setState(() {
-                            RolesController().setAllFirstSelected();
+                            RolesController().setAllRolesSelected();
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
@@ -133,7 +133,7 @@ class FirstChoiceState extends State<FirstChoice> {
                                 width: 3, color: Colors.blueGrey[300])),
                         onPressed: () {
                           setState(() {
-                            RolesController().setAllFirstUnselected();
+                            RolesController().setAllRolesUnselected();
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
@@ -149,7 +149,7 @@ class FirstChoiceState extends State<FirstChoice> {
               child: SingleChildScrollView(
                 child: Center(
                   child:
-                      Column(children: RolesController().getAllFirstWidgets()),
+                      Column(children: RolesController().getAllRolesWidgets()),
                 ),
               ),
             ),
@@ -162,8 +162,8 @@ class FirstChoiceState extends State<FirstChoice> {
   Roles newRole(String name, String description) {
     RolesProperties properties = new RolesProperties(
         RolesController().getAllRoles().length + 1, name, description, 1, 0, 0);
-    Roles newFirst = new Roles(properties);
-    return newFirst;
+    Roles newRoles = new Roles(properties);
+    return newRoles;
   }
 
   int setIsSelected(bool _isSelected) {

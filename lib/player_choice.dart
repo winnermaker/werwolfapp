@@ -134,7 +134,7 @@ class PlayersChoiceState extends State<PlayersChoice> {
                                 width: 3, color: Colors.blueGrey[300])),
                         onPressed: () {
                           setState(() {
-                            PlayersController().setAllPlayersUnelected();
+                            PlayersController().setAllPlayersUnselected();
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(

@@ -36,13 +36,14 @@ class DatabaseProvider {
     String dbPath = await getDatabasesPath();
 
     return await openDatabase(
-      join(dbPath, 'myDB.db'),
+      join(dbPath, 'myDB4.db'),
       version: 1,
       onOpen: (Database db) {
         print("open Database");
       },
       onCreate: (Database db, int version) async {
         print("creating Roles Table");
+
         await db.execute("CREATE TABLE $TABLE_Roles ("
             "$COLUMN_ID INTEGER PRIMARY KEY,"
             "$COLUMN_NAME TEXT,"
@@ -51,29 +52,25 @@ class DatabaseProvider {
             "$COLUMN_ISSECONDROLE INTEGER,"
             "$COLUMN_ISSELECTED INTEGER"
             ")");
+        print("creating Player Table");
+
+        await db.execute("CREATE TABLE $TABLE_Players ("
+            "$COLUMN_ID_Players INTEGER PRIMARY KEY,"
+            "$COLUMN_NAME_Players TEXT,"
+            "$COLUMN_ISSELECTED_Players INTEGER"
+            ")");
         try {
           String contents = await rootBundle.loadString('assets/roles.json');
           List<dynamic> json = jsonDecode(contents);
+          String contentsplayer =
+              await rootBundle.loadString('assets/player.json');
+          List<dynamic> jsonplayer = jsonDecode(contentsplayer);
 
           for (var rolesMap in json) {
             db.insert("roles", Roles.fromMap(rolesMap).toMap());
           }
-        } catch (err) {
-          print(err);
-        }
-        print("creating Player Table");
-        await db.execute(
-          "CREATE TABLE $TABLE_Players ("
-          "$COLUMN_ID_Players INTEGER PRIMARY KEY,"
-          "$COLUMN_NAME_Players TEXT,"
-          "$COLUMN_ISSELECTED_Players INTEGER"
-          ")",
-        );
-        try {
-          String contents = await rootBundle.loadString('assets/players.json');
-          List<dynamic> json = jsonDecode(contents);
 
-          for (var playersMap in json) {
+          for (var playersMap in jsonplayer) {
             db.insert("players", Players.fromMap(playersMap).toMap());
           }
         } catch (err) {
@@ -190,7 +187,7 @@ class DatabaseProvider {
     });
   }
 
-  Future<int> deletePlayer(int id) async {
+  Future<int> deletePlayers(int id) async {
     final db = await database;
 
     return await db.delete(
@@ -200,7 +197,7 @@ class DatabaseProvider {
     );
   }
 
-  Future<int> updatePlayer(Players _player) async {
+  Future<int> updatePlayers(Players _player) async {
     final db = await database;
 
     return await db.update(

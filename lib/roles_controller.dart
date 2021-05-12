@@ -108,6 +108,18 @@ class RolesController {
     return _widgets;
   }
 
+  List<Widget> getAllRolesWidgets() {
+    List<Widget> _widgets = new List<Widget>();
+    List<Roles> _roles = new List<Roles>();
+
+    _roles = RolesController().getAllRoles().toList();
+
+    for (int i = 0; i < _roles.length; i++) {
+      _widgets.add(_roles[i]);
+    }
+    return _widgets;
+  }
+
   void setAllSecondSelected() {
     List<Roles> _roles = new List<Roles>();
     _roles = RolesController()
@@ -117,6 +129,24 @@ class RolesController {
 
     for (int i = 0; i < _roles.length; i++) {
       _roles[i].properties.isselected = 1;
+    }
+  }
+
+  void setAllRolesSelected() {
+    List<Roles> _roles = new List<Roles>();
+    _roles = RolesController().getAllRoles().toList();
+
+    for (int i = 0; i < _roles.length; i++) {
+      _roles[i].properties.isselected = 1;
+    }
+  }
+
+  void setAllRolesUnselected() {
+    List<Roles> _roles = new List<Roles>();
+    _roles = RolesController().getAllRoles().toList();
+
+    for (int i = 0; i < _roles.length; i++) {
+      _roles[i].properties.isselected = 0;
     }
   }
 
